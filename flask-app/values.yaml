@@ -20,3 +20,6 @@ envFromSecrets:
   - secretName: flask-secret
     keys:
       - SUPER_SECRET_KEY
+  - secretName: my-secret  # This is the SOPS-managed secret
+    keys:
+      - ANOTHER_SECRET_KEY

@@ -26,3 +26,8 @@ spec:
                 secretKeyRef:
                   name: flask-secret
                   key: SUPER_SECRET_KEY
+            - name: ANOTHER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: my-secret
+                  key: ANOTHER_SECRET_KEY

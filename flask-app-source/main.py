@@ -11,9 +11,12 @@ app = Flask(__name__)
 @app.route('/hello', methods=['GET'])
 def helloworld():
 	if request.method == 'GET':
-		api_key = os.environ.get('SUPER_SECRET_KEY')
-		if api_key:
-			logger.info("Secret successfully loaded")
+		secret1 = os.environ.get('SUPER_SECRET_KEY')
+		secret2 = os.environ.get('ANOTHER_SECRET_KEY')
+		if secret1 and secret2:
+			logger.info(f"Secrets loaded - SUPER_SECRET_KEY: {secret1}, ANOTHER_SECRET_KEY: {secret2}")
+		else:
+			logger.warning("One or more secrets not found")
 		data = {"data": "Hello World"}
 		return jsonify(data)
 
